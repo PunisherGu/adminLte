@@ -11,9 +11,11 @@
 |
 */
 
-Route::group(['middleware' => ['auth'], 'namespace'=>'Admin'], function () {
+Route::group(['middleware' => ['auth'], 'namespace'=>'Admin', 'prefix'=>'admin'], function () {
 
-    Route::get('admin','AdminController@index')->name('admin');
+    Route::get('/','AdminController@index')->name('admin.home');
+    Route::get('balance','BalanceController@index')->name('admin.balance');
+
 });
 
 
